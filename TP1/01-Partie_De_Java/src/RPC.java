@@ -19,70 +19,73 @@ public class RPC {
         }
         int counter = manches;
         do {
-            //for(counter = manches; counter >= 1; counter--) {
-                System.out.println("Il reste " + counter + " manche(s) à jouer.");
+            System.out.println("Il reste " + counter + " manche(s) à jouer.");
 
-                System.out.println("JOUEUR 1, quel est votre choix? [r/p/c]");
-                Pep8.chari();
-                joueurs1Choix = Pep8.chari();
-                if (joueurs1Choix != 'r' && joueurs1Choix != 'p' && joueurs1Choix != 'c') {
-                    System.out.println("Erreur d'entrée! Programme terminé.");
-                    Pep8.stop();
-                }
+            //Verification l'entrer de Joueur 1 :
+            System.out.println("JOUEUR 1, quel est votre choix? [r/p/c]");
+            Pep8.chari();
+            joueurs1Choix = Pep8.chari();
+            if (joueurs1Choix != 'r' && joueurs1Choix != 'p' && joueurs1Choix != 'c') {
+                System.out.println("Erreur d'entrée! Programme terminé.");
+                Pep8.stop();
+            }
 
-                System.out.println("JOUEUR 2, quel est votre choix? [r/p/c]");
-                Pep8.chari();
-                joueurs2Choix = Pep8.chari();
-                if (joueurs2Choix != 'r' && joueurs2Choix != 'p' && joueurs2Choix != 'c') {
-                    System.out.println("Erreur d'entrée! Programme terminé.");
-                    Pep8.stop();
-                }
+            //Verification l'entrer de Joueur 2 :
+            System.out.println("JOUEUR 2, quel est votre choix? [r/p/c]");
+            Pep8.chari();
+            joueurs2Choix = Pep8.chari();
+            if (joueurs2Choix != 'r' && joueurs2Choix != 'p' && joueurs2Choix != 'c') {
+                System.out.println("Erreur d'entrée! Programme terminé.");
+                Pep8.stop();
+            }
 
-                switch (joueurs1Choix) {
-                    case 'r':
-                        if (joueurs2Choix == 'r') {
-                            System.out.println("Manche null \n");
-                        }else if (joueurs2Choix == 'c') {
-                            joueurs1Score++;
-                            System.out.println("JOUEUR 1 a gagné cette manche! Score:" + joueurs1Score + "-" + joueurs2Score + "\n");
-                            counter--;
-                        }else{
-                            joueurs2Score++;
-                            System.out.println("JOUEUR 2 a gagné cette manche! Score:" + joueurs1Score + "-" + joueurs2Score + "\n");
-                            counter--;
-                        }
-                        break;
+            // Le programme compare le choix des deux joueurs et annonce le gagnant de la manche
+            switch (joueurs1Choix) {
+                case 'r':
+                    if (joueurs2Choix == 'r') {
+                        System.out.println("Manche null \n");
+                    }else if (joueurs2Choix == 'c') {
+                        joueurs1Score++;
+                        System.out.println("JOUEUR 1 a gagné cette manche! Score:" + joueurs1Score + "-" + joueurs2Score + "\n");
+                        counter--;
+                    }else{
+                        joueurs2Score++;
+                        System.out.println("JOUEUR 2 a gagné cette manche! Score:" + joueurs1Score + "-" + joueurs2Score + "\n");
+                        counter--;
+                    }
+                    break;
 
-                    case 'c':
-                        if (joueurs2Choix == 'r') {
-                            joueurs2Score++;
-                            System.out.println("JOUEUR 2 a gagné cette manche! Score:" + joueurs1Score + "-" + joueurs2Score + "\n");
-                            counter--;
-                        }else if (joueurs2Choix == 'c') {
-                            System.out.println("Manche null + \n");
-                        }else{
-                            joueurs1Score++;
-                            System.out.println("JOUEUR 1 a gagné cette manche! Score:" + joueurs1Score + "-" + joueurs2Score + "\n");
-                            counter--;
-                        }
-                        break;
+                case 'c':
+                    if (joueurs2Choix == 'r') {
+                        joueurs2Score++;
+                        System.out.println("JOUEUR 2 a gagné cette manche! Score:" + joueurs1Score + "-" + joueurs2Score + "\n");
+                        counter--;
+                    }else if (joueurs2Choix == 'c') {
+                        System.out.println("Manche null + \n");
+                    }else{
+                        joueurs1Score++;
+                        System.out.println("JOUEUR 1 a gagné cette manche! Score:" + joueurs1Score + "-" + joueurs2Score + "\n");
+                        counter--;
+                    }
+                    break;
 
-                    case 'p':
-                        if (joueurs2Choix == 'r') {
-                            joueurs1Score++;
-                            System.out.println("JOUEUR 1 a gagné cette manche! Score:" + joueurs1Score + "-" + joueurs2Score + "\n");
-                            counter--;
-                        }else if (joueurs2Choix == 'c') {
-                            joueurs2Score++;
-                            System.out.println("JOUEUR 1 a gagné cette manche! Score:" + joueurs1Score + "-" + joueurs2Score + "\n");
-                            counter--;
-                        }else{
-                            System.out.println("Manche null \n");
-                        }
-                        break;
-                }
-            //}
-            if(joueurs1Score >= joueurs2Score){
+                case 'p':
+                    if (joueurs2Choix == 'r') {
+                        joueurs1Score++;
+                        System.out.println("JOUEUR 1 a gagné cette manche! Score:" + joueurs1Score + "-" + joueurs2Score + "\n");
+                        counter--;
+                    }else if (joueurs2Choix == 'c') {
+                        joueurs2Score++;
+                        System.out.println("JOUEUR 1 a gagné cette manche! Score:" + joueurs1Score + "-" + joueurs2Score + "\n");
+                        counter--;
+                    }else{
+                        System.out.println("Manche null \n");
+                    }
+                    break;
+            }
+
+            //Calculer la difference entre les scores pour verifier si le match a fini ou non ! :
+            if (joueurs1Score >= joueurs2Score) {
                 scoreDifference = joueurs1Score - joueurs2Score;
             }else{
                 scoreDifference = joueurs2Score - joueurs1Score;
@@ -90,6 +93,7 @@ public class RPC {
 
         } while (counter > scoreDifference);
 
+        //Message final : affiche le gagnant du match et le score
         if (joueurs1Score > joueurs2Score) {
             System.out.println("Joueur1 a gagné le match! félicitation !");
         }else{
