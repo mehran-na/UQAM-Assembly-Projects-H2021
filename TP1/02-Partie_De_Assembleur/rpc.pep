@@ -1,9 +1,9 @@
 ; Le programme ci-dessous permet a deux utilisateurs de jouer au jeu de Pierre-Papier-Ciseau.
 ; Membres :
 ;        
-;        - Issakha Wade
+;        - Issakha Wade           WADI82030002
 ;
-;        - Mehran Nazemi
+;        - Mehran Nazemi          NAZM30088507
 
 
 ; Message d'acceuil
