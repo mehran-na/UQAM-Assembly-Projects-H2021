@@ -7,11 +7,11 @@ msgDeb:          STRO        msgLine,d
 
 prenNum:         STRO        msgNum,d 
                  DECI        manches,d
-                 LDA         manches,d
                  BR          verifNum
 
 
-verifNum:        ANDA        1,i
+verifNum:        LDA         manches,d
+                 ANDA        1,i
                  CPA         0,i
                  BREQ        pair
                  BR          manRest
@@ -37,7 +37,7 @@ j1PrCar:         STRO        msgJ1,d
                  BREQ        j2PrCar  ;ok
                  CPA         'p',i
                  BREQ        j2PrCar  ;ok
-                 STRO          errorCar,d 
+                 STRO        errorCar,d 
                  STOP        
 
 
