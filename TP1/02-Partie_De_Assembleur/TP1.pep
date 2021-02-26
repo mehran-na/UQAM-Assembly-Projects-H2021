@@ -84,8 +84,6 @@ j2C:             LDA         0,i
                  BREQ        j2Gagne
 
 
-
-
 j2P:             LDA         0,i
                  LDBYTEA     j2Choix,d
                  CPA         'c',i
