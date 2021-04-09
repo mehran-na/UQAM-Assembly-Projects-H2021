@@ -11,8 +11,8 @@ prenNum:         STRO        msgNum,d
 
 
 verifNum:        LDA         manches,d
-                 ANDA        1,i
-                 CPA         0,i
+                 ANDA        1,i  ;masque
+                 CPA         0,i  ;comparer avec zero
                  BREQ        pair
                  BR          manRest
 
